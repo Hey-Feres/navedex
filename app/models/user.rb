@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   # Devise attributes
   #
 
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :validatable
 
   #
   # Modules

@@ -13,12 +13,12 @@ module Api
 
       # GET /navers
       def index
-        render json: @query, include: %i[projects], meta: meta
+        render json: @query, adapter: :json
       end
 
       # GET /navers/1
       def show
-        render json: @naver, include: %i[projects]
+        render json: @naver
       end
 
       # POST /navers
@@ -54,7 +54,7 @@ module Api
 
         # Only allow a trusted parameter "white list" through.
         def naver_params
-          params.require(:naver).permit(:name, :birthdate, :admission_date, :job_role)
+          params.require(:naver).permit(:name, :birthdate, :admission_date, :job_role, projects_ids: [], remove_projects_ids: [])
         end
     end
   end

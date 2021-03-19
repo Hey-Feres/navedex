@@ -40,4 +40,16 @@ class Project < ApplicationRecord
         navers << naver if navers.map(&:id).exclude?(naver_id)
       end
     end
+
+    #
+    # Remove the navers from project
+    def remove_navers
+      return unless remove_navers_ids.present?
+
+      remove_navers_ids.uniq.each do |naver_id|
+        naver = Naver.find(naver_id)
+
+        navers.delete(naver) if navers.map(&:id).include?(naver_id)
+      end
+    end
 end

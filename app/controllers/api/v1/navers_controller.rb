@@ -13,12 +13,12 @@ module Api
 
       # GET /navers
       def index
-        render json: @query, adapter: :json
+        render json: @query, include: %i[projects]
       end
 
       # GET /navers/1
       def show
-        render json: @naver
+        render json: @naver, include: %i[projects]
       end
 
       # POST /navers
@@ -26,7 +26,7 @@ module Api
         @naver = Naver.new(naver_params)
 
         if @naver.save
-          render json: @naver, status: :created
+          render json: @naver, include: %i[projects], status: :created
         else
           render json: @naver.errors, status: :unprocessable_entity
         end
@@ -35,7 +35,7 @@ module Api
       # PATCH/PUT /navers/1
       def update
         if @naver.update(naver_params)
-          render json: @naver
+          render json: @naver, include: %i[projects]
         else
           render json: @naver.errors, status: :unprocessable_entity
         end

@@ -13,12 +13,12 @@ module Api
 
       # GET /projects
       def index
-        render json: @query
+        render json: @query, include: %i[navers]
       end
 
       # GET /projects/1
       def show
-        render json: @project
+        render json: @project, include: %i[navers]
       end
 
       # POST /projects
@@ -26,7 +26,7 @@ module Api
         @project = Project.new(project_params)
 
         if @project.save
-          render json: @project, status: :created
+          render json: @project, include: %i[navers], status: :created
         else
           render json: @project.errors, status: :unprocessable_entity
         end
@@ -35,7 +35,7 @@ module Api
       # PATCH/PUT /projects/1
       def update
         if @project.update(project_params)
-          render json: @project
+          render json: @project, include: %i[navers]
         else
           render json: @project.errors, status: :unprocessable_entity
         end

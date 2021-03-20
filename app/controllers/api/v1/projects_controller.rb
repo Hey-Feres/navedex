@@ -9,18 +9,29 @@ module Api
     #
     # Projects Endpoints
     class ProjectsController < ApiController
-      before_action :set_project, only: [:show, :update, :destroy]
+      #
+      # Callbacks
+      #
 
+      before_action :set_project, only: %i[show update destroy]
+
+      #
+      # Actions
+      #
+
+      #
       # GET /projects
       def index
         render json: @query, include: %i[navers]
       end
 
+      #
       # GET /projects/1
       def show
         render json: @project, include: %i[navers]
       end
 
+      #
       # POST /projects
       def create
         @project = Project.new(project_params)
@@ -32,6 +43,7 @@ module Api
         end
       end
 
+      #
       # PATCH/PUT /projects/1
       def update
         if @project.update(project_params)
@@ -41,17 +53,20 @@ module Api
         end
       end
 
+      #
       # DELETE /projects/1
       def destroy
         @project.destroy
       end
 
       private
+        #
         # Use callbacks to share common setup or constraints between actions.
         def set_project
           @project = Project.find(params[:id])
         end
 
+        #
         # Only allow a trusted parameter "white list" through.
         def project_params
           params.require(:project).permit(:name, navers_ids: [])

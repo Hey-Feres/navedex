@@ -17,12 +17,20 @@ gem 'rack-cors'
 gem 'devise_token_auth'
 # Devise is a flexible authentication solution for Rails based on Warden.
 gem 'devise'
+# Data Serialization
+gem 'active_model_serializers'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # This gem is a port of Perl's Data::Faker library that generates fake data.
   gem 'faker'
+  # factory_bot_rails provides Rails integration for factory_bot
+  gem 'factory_bot_rails'
+  # rspec-rails brings the RSpec testing framework to Ruby on Rails
+  gem 'rspec-rails'
+  # Shoulda Matchers provides RSpec one-liners to test common Rails functionality
+  gem 'shoulda-matchers'
 end
 
 group :development do

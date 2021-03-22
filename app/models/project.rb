@@ -14,7 +14,7 @@ class Project < ApplicationRecord
   # Virtual Attributes
   #
 
-  attr_accessor :navers_ids
+  attr_accessor :navers_ids, :remove_navers_ids
 
   #
   # Associations
@@ -26,7 +26,7 @@ class Project < ApplicationRecord
   # Callbacks
   #
 
-  before_validation :set_navers
+  before_validation :set_navers, :remove_navers
 
   private
     #

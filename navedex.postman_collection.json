@@ -1,0 +1,906 @@
+{
+	"info": {
+		"_postman_id": "081b3daf-631c-445f-997d-c7f9c3a49080",
+		"name": "Navedex",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Navedex",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Signup",
+							"protocolProfileBehavior": {
+								"followRedirects": false,
+								"followOriginalHttpMethod": false,
+								"followAuthorizationHeader": false
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"bruno13@teste.com\",\n  \"password\": \"123456\",\n  \"password_confirmation\": \"123456\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/auth",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"protocolProfileBehavior": {
+								"followRedirects": false,
+								"followOriginalHttpMethod": false,
+								"followAuthorizationHeader": false
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"email\": \"bruno@teste.com\",\n\t\"password\": \"123456\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/auth/sign_in",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"sign_in"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Naver",
+					"item": [
+						{
+							"name": "Index",
+							"protocolProfileBehavior": {
+								"followRedirects": false,
+								"followOriginalHttpMethod": false,
+								"followAuthorizationHeader": false
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "access-token",
+										"value": "{{access-token}}"
+									},
+									{
+										"key": "client",
+										"value": "{{client}}"
+									},
+									{
+										"key": "uid",
+										"value": "{{uid}}"
+									},
+									{
+										"key": "expiry",
+										"value": "{{expiry}}"
+									},
+									{
+										"key": "token-type",
+										"value": "{{token-type}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/v1/navers",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"navers"
+									],
+									"query": [
+										{
+											"key": "search_by",
+											"value": "created_at",
+											"disabled": true
+										},
+										{
+											"key": "search_for",
+											"value": "2021-03",
+											"disabled": true
+										},
+										{
+											"key": "sort_by",
+											"value": "id",
+											"disabled": true
+										},
+										{
+											"key": "order_by",
+											"value": "desc",
+											"disabled": true
+										},
+										{
+											"key": "length",
+											"value": "5",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "2",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show",
+							"protocolProfileBehavior": {
+								"followRedirects": false,
+								"followOriginalHttpMethod": false,
+								"followAuthorizationHeader": false
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "access-token",
+										"value": "{{access-token}}"
+									},
+									{
+										"key": "client",
+										"value": "{{client}}"
+									},
+									{
+										"key": "uid",
+										"value": "{{uid}}"
+									},
+									{
+										"key": "expiry",
+										"value": "{{expiry}}"
+									},
+									{
+										"key": "token-type",
+										"value": "{{token-type}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/v1/navers/3",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"navers",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"protocolProfileBehavior": {
+								"followAuthorizationHeader": false,
+								"followOriginalHttpMethod": false,
+								"followRedirects": false
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "access-token",
+										"value": "{{access-token}}"
+									},
+									{
+										"key": "client",
+										"value": "{{client}}"
+									},
+									{
+										"key": "uid",
+										"value": "{{uid}}"
+									},
+									{
+										"key": "expiry",
+										"value": "{{expiry}}"
+									},
+									{
+										"key": "token-type",
+										"value": "{{token-type}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"naver\": {\n    \"name\": \"Bruno\",\n    \"birthdate\": \"1999-09-23\",\n    \"admission_date\": \"2021-04-01\",\n    \"job_role\": \"Desenvolvedor\",\n    \"projects_ids\": [3,4]\n  }\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/navers",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"navers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"protocolProfileBehavior": {
+								"followAuthorizationHeader": false,
+								"followOriginalHttpMethod": false,
+								"followRedirects": false
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "access-token",
+										"value": "{{access-token}}"
+									},
+									{
+										"key": "client",
+										"value": "{{client}}"
+									},
+									{
+										"key": "uid",
+										"value": "{{uid}}"
+									},
+									{
+										"key": "expiry",
+										"value": "{{expiry}}"
+									},
+									{
+										"key": "token-type",
+										"value": "{{token-type}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"naver\": {\n    \"name\": \"Bruno\",\n    \"birthdate\": \"1999-09-23\",\n    \"admission_date\": \"2021-04-01\",\n    \"job_role\": \"Desenvolvedor\",\n    \"remove_projects_id\": [5]\n  }\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/navers/5",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"navers",
+										"5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Destroy",
+							"protocolProfileBehavior": {
+								"followAuthorizationHeader": false,
+								"followOriginalHttpMethod": false,
+								"followRedirects": false
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "access-token",
+										"value": "{{access-token}}"
+									},
+									{
+										"key": "client",
+										"value": "{{client}}"
+									},
+									{
+										"key": "uid",
+										"value": "{{uid}}"
+									},
+									{
+										"key": "expiry",
+										"value": "{{expiry}}"
+									},
+									{
+										"key": "token-type",
+										"value": "{{token-type}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/v1/navers/5",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"navers",
+										"5"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Projects",
+					"item": [
+						{
+							"name": "Index",
+							"protocolProfileBehavior": {
+								"followRedirects": false,
+								"followOriginalHttpMethod": false,
+								"followAuthorizationHeader": false
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "access-token",
+										"value": "{{access-token}}"
+									},
+									{
+										"key": "client",
+										"value": "{{client}}"
+									},
+									{
+										"key": "uid",
+										"value": "{{uid}}"
+									},
+									{
+										"key": "expiry",
+										"value": "{{expiry}}"
+									},
+									{
+										"key": "token-type",
+										"value": "{{token-type}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/v1/projects",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"projects"
+									],
+									"query": [
+										{
+											"key": "search_by",
+											"value": "created_at",
+											"disabled": true
+										},
+										{
+											"key": "search_for",
+											"value": "2021-03",
+											"disabled": true
+										},
+										{
+											"key": "sort_by",
+											"value": "id",
+											"disabled": true
+										},
+										{
+											"key": "order_by",
+											"value": "desc",
+											"disabled": true
+										},
+										{
+											"key": "length",
+											"value": "5",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "2",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show",
+							"protocolProfileBehavior": {
+								"followRedirects": false,
+								"followOriginalHttpMethod": false,
+								"followAuthorizationHeader": false
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "access-token",
+										"value": "{{access-token}}"
+									},
+									{
+										"key": "client",
+										"value": "{{client}}"
+									},
+									{
+										"key": "uid",
+										"value": "{{uid}}"
+									},
+									{
+										"key": "expiry",
+										"value": "{{expiry}}"
+									},
+									{
+										"key": "token-type",
+										"value": "{{token-type}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/v1/projects/3",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"projects",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"protocolProfileBehavior": {
+								"followAuthorizationHeader": false,
+								"followOriginalHttpMethod": false,
+								"followRedirects": false
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "access-token",
+										"value": "{{access-token}}"
+									},
+									{
+										"key": "client",
+										"value": "{{client}}"
+									},
+									{
+										"key": "uid",
+										"value": "{{uid}}"
+									},
+									{
+										"key": "expiry",
+										"value": "{{expiry}}"
+									},
+									{
+										"key": "token-type",
+										"value": "{{token-type}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"project\": {\n    \"name\": \"Project Alfa\",\n    \"navers_ids\": [2,3,4,7]\n  }\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/projects",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"projects"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"protocolProfileBehavior": {
+								"followAuthorizationHeader": false,
+								"followOriginalHttpMethod": false,
+								"followRedirects": false
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "access-token",
+										"value": "{{access-token}}"
+									},
+									{
+										"key": "client",
+										"value": "{{client}}"
+									},
+									{
+										"key": "uid",
+										"value": "{{uid}}"
+									},
+									{
+										"key": "expiry",
+										"value": "{{expiry}}"
+									},
+									{
+										"key": "token-type",
+										"value": "{{token-type}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"project\": {\n    \"name\": \"Project Alfa\",\n    \"remove_navers_ids\": [7]\n  }\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/projects/41",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"projects",
+										"41"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Destroy",
+							"protocolProfileBehavior": {
+								"followAuthorizationHeader": false,
+								"followOriginalHttpMethod": false,
+								"followRedirects": false
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "access-token",
+										"value": "{{access-token}}"
+									},
+									{
+										"key": "client",
+										"value": "{{client}}"
+									},
+									{
+										"key": "uid",
+										"value": "{{uid}}"
+									},
+									{
+										"key": "expiry",
+										"value": "{{expiry}}"
+									},
+									{
+										"key": "token-type",
+										"value": "{{token-type}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/v1/projects/5",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"projects",
+										"5"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Projects",
+					"item": [
+						{
+							"name": "Index",
+							"protocolProfileBehavior": {
+								"followRedirects": false,
+								"followOriginalHttpMethod": false,
+								"followAuthorizationHeader": false
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "access-token",
+										"value": "{{access_token}}"
+									},
+									{
+										"key": "client",
+										"value": "{{client}}"
+									},
+									{
+										"key": "uid",
+										"value": "{{uid}}"
+									},
+									{
+										"key": "expiry",
+										"value": "{{expiry}}"
+									},
+									{
+										"key": "token-type",
+										"value": "{{token_type}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/projects",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"projects"
+									],
+									"query": [
+										{
+											"key": "sort_by",
+											"value": "xyz",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show",
+							"protocolProfileBehavior": {
+								"followRedirects": false,
+								"followOriginalHttpMethod": false,
+								"followAuthorizationHeader": false
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "access-token",
+										"value": "{{access_token}}"
+									},
+									{
+										"key": "client",
+										"value": "{{client}}"
+									},
+									{
+										"key": "uid",
+										"value": "{{uid}}"
+									},
+									{
+										"key": "expiry",
+										"value": "{{expiry}}"
+									},
+									{
+										"key": "token-type",
+										"value": "{{token_type}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/projects/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"projects",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"protocolProfileBehavior": {
+								"followRedirects": false,
+								"followOriginalHttpMethod": false,
+								"followAuthorizationHeader": false
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "access-token",
+										"value": "{{access_token}}"
+									},
+									{
+										"key": "client",
+										"value": "{{client}}"
+									},
+									{
+										"key": "uid",
+										"value": "{{uid}}"
+									},
+									{
+										"key": "expiry",
+										"value": "{{expiry}}"
+									},
+									{
+										"key": "token-type",
+										"value": "{{token_type}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"project\": {\n    \"name\": \"Project Alfa\",\n    \"navers_ids\": [2,3,4,5,5,5]\n  }\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/projects",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"projects"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"protocolProfileBehavior": {
+								"followRedirects": false,
+								"followOriginalHttpMethod": false,
+								"followAuthorizationHeader": false
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "access-token",
+										"value": "{{access_token}}"
+									},
+									{
+										"key": "client",
+										"value": "{{client}}"
+									},
+									{
+										"key": "uid",
+										"value": "{{uid}}"
+									},
+									{
+										"key": "expiry",
+										"value": "{{expiry}}"
+									},
+									{
+										"key": "token-type",
+										"value": "{{token_type}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"project\": {\n    \"name\": \"Project Alfa\",\n    \"remove_navers_ids\": [9]\n  }\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/projects/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"projects",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Destroy",
+							"protocolProfileBehavior": {
+								"followRedirects": false,
+								"followOriginalHttpMethod": false,
+								"followAuthorizationHeader": false
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "access-token",
+										"value": "{{access_token}}"
+									},
+									{
+										"key": "client",
+										"value": "{{client}}"
+									},
+									{
+										"key": "uid",
+										"value": "{{uid}}"
+									},
+									{
+										"key": "expiry",
+										"value": "{{expiry}}"
+									},
+									{
+										"key": "token-type",
+										"value": "{{token_type}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/projects/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"projects",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

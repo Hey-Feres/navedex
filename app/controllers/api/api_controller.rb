@@ -27,7 +27,31 @@ module Api
       #
       # Meta to be used on index actions
       def meta
-        { total_pages: @query.total_pages, total_records: @query.total_records }
+        { total_pages: count_total_pages, total_records: total_records.to_i }
+      end
+
+      #
+      # Count totla pages based on page length
+      def count_total_pages
+        (total_records / length).ceil
+      end
+
+      #
+      # Count all the records of model that was requested
+      def total_records
+        scope.count.to_f
+      end
+
+      #
+      # Return the length received as param or 20 if page's param is nil
+      def length
+        params[:length]&.to_f || 20
+      end
+
+      #
+      # Return the page received as param or 1 if page's param is nil
+      def page
+        params[:page] || 1
       end
 
       #
@@ -73,7 +97,7 @@ module Api
         @query = scope
         @query = @query.search(search_by: params[:search_by], search_for: params[:search_for]) if should_search?
         @query = @query.order(params[:sort_by].to_sym => params[:order_by].to_sym)
-        @query = @query.paginate(page: params[:page], length: params[:length])
+        @query = @query.paginate(page: page, length: length)
       end
   end
 end

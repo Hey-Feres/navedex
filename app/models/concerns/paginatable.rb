@@ -19,13 +19,5 @@ module Paginatable
       starts_at = (page - 1) * length
       limit(length).offset(starts_at)
     end
-
-    def self.total_pages
-      total_pages = (self.all.count.to_f / DEFAULT_LENGTH).ceil
-    end
-
-    def self.total_records
-      self.all.count
-    end
   end
 end
